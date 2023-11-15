@@ -2,8 +2,7 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <stdio.h>
-
-#define READ_SIZE 1024
+#include "shell.h"
 
 static ssize_t read_char(int fd, char *buffer, size_t *pos)
 {

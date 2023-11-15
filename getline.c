@@ -3,8 +3,8 @@
 #include <fcntl.h>
 #include <string.h>
 #include <stdio.h>
+#include "shell.h"
 
-#define READ_SIZE 1024
 
 static ssize_t read_char(int fd, char *buffer, size_t *pos)
 {
