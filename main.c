@@ -1,34 +1,28 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
+#include "shell.h"
 
-#define MAX_LENGTH 1024
+/**
+ * main - Entry point of the program.
+ * @argc: Command-line arguments number
+ * @argv: This is strings array with command-line arguments.
+ *
+ * Return: 0 success, or an error code if insufficient arguments are provided.
+ */
+int main(int argc, char *argv[])
+{
+        char *filename;
 
-void print_prompt() {
-    printf("simple-shell> ");
-}
+        if (argc < 2)
+        {
+                fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
+                return (1);
+        }
 
-char* read_command() {
-    char *command = (char *) malloc(MAX_LENGTH * sizeof(char));
-    fgets(command, MAX_LENGTH, stdin);
-    return command;
-}
+        filename = argv[1];
 
-void execute_command(char *command) {
-    if (strcmp(command, "exit\n") == 0) {
-        exit(0);
-    } else {
-        system(command);
-    }
-}
+        /* Your code to handle the filename or perform other operations */
 
-int main() {
-    while (1) {
-	char *command = read_command();
-        print_prompt();
-        execute_command(command);
-        free(command);
-    }
-    return 0;
+        printf("Filename: %s\n", filename);
+
+        return (0);
 }
