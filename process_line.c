@@ -68,20 +68,20 @@ char *custom_getline(int fd)
 
 void process_line(const char *line)
 {
-	
-	for (size_t i = 0; line[i] != '\0'; ++i)
+	size_t 1;
+	for (i = 0; line[i] != '\0'; ++i)
 	{
 		
 	
 		putchar(line[i]);
 	}
-
-	
 	putchar('\n');
 }
 
 int main(void)
 {
+	char *line;
+	
 	int fd = open("example.txt", O_RDONLY);
 	if (fd == -1)
 	{
@@ -89,7 +89,6 @@ int main(void)
 		exit(EXIT_FAILURE);
 	}
 
-	char *line;
 	while ((line = custom_getline(fd)) != NULL)
 	{
 		process_line(line);
