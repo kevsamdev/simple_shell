@@ -10,18 +10,19 @@
  */
 int main(int argc, char *argv[])
 {
-	if (argc < 2)
-	{
-		fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
-		return (1);
-	}
+        char *filename;
 
-	char *filename = argv[1];
+        if (argc < 2)
+        {
+                fprintf(stderr, "Usage: %s <filename>\n", argv[0]);
+                return (1);
+        }
 
-	/* Your code to handle the filename or perform other operations */
+        filename = argv[1];
 
-	printf("Filename: %s\n", filename);
+        /* Your code to handle the filename or perform other operations */
 
-	return (0);
+        printf("Filename: %s\n", filename);
+
+        return (0);
 }
-
