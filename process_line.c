@@ -66,15 +66,15 @@ char *custom_getline(int fd)
 
 void process_line(const char *line)
 {
-	/* Process each character in the line */
+	
 	for (size_t i = 0; line[i] != '\0'; ++i)
 	{
-		/* Your processing logic here */
-		/* For example, printing each character */
+		
+	
 		putchar(line[i]);
 	}
 
-	/* Print a newline after processing the line */
+	
 	putchar('\n');
 }
 
