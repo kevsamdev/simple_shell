@@ -25,8 +25,8 @@ void execute_command(char *command) {
 
 int main() {
     while (1) {
+	char *command = read_command();
         print_prompt();
-        char *command = read_command();
         execute_command(command);
         free(command);
     }

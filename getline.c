@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include "shell.h"
 
+#define READ_SIZE 1024
 
 static ssize_t read_char(int fd, char *buffer, size_t *pos)
 {
@@ -69,14 +70,13 @@ char *custom_getline(int fd)
 int main(void)
 {
 
+	char *line;
 	int fd = open("example.txt", O_RDONLY);
 	if (fd == -1)
 	{
 		perror("Error opening file");
 		exit(EXIT_FAILURE);
 	}
-
-	char *line;
 
 	while ((line = custom_getline(fd)) != NULL)
 	{
