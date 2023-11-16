@@ -3,14 +3,14 @@
 
 int main(int argc, char *argv[])
 {
+	const char *command = argv[1];
+        const char *variable = argv[2];
+
 	if (argc < 3)
 	{
 		fprintf(stderr, "Usage: %s \n", argv[0]);
 		return (1);
 	}
-
-	const char *command = argv[1];
-	const char *variable = argv[2];
 
 	if (strcmp(command, "setenv") == 0)
 	{
