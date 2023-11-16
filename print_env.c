@@ -4,7 +4,7 @@
 
 /**
  * env_shell - Prints the current environment.
- * @envp: Array of strings containing the environment variables.
+ * @envp: The strings array with environment variables.
  */
 void env_shell(char *envp[])
 {
@@ -20,8 +20,7 @@ void env_shell(char *envp[])
 /**
  * main - Example usage of the shell program with env built-in.
  * @argc: Number of command-line arguments.
- * @argv: Array of command-line argument strings.
- * @envp: Array of strings containing the environment variables.
+ * @argv: This is command-line argument strings array.
  *
  * Return: Always 0.
  */

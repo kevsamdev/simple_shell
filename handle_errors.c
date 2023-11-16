@@ -3,7 +3,7 @@
 #include "shell.h"
 
 /**
- * main - Main function of the program.
+ * main - This the Main function of our program.
  *
  * Description: This function attempts to open a file for reading,
  * handles errors if the file opening fails, and then closes the file
