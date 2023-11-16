@@ -68,9 +68,9 @@ char *custom_getline(int fd)
 
 void process_line(const char *line)
 {
-    (void)line;
-
     size_t i;
+	
+	(void)line;
 
     for (i = 0; line[i] != '\0'; ++i)
     {
