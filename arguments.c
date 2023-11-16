@@ -3,8 +3,8 @@
 
 /**
  * main - Entry point of the program.
- * @argc: The number of command-line arguments.
- * @argv: An array of strings containing the command-line arguments.
+ * @argc: Command-line arguments number
+ * @argv: This is strings array with command-line arguments.
  *
  * Return: 0 success, or an error code if insufficient arguments are provided.
  */
