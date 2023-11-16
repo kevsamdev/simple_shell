@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main(int argc, char *argv[])
 {
 	const char *command = argv[1];
-        const char *variable = argv[2];
+    const char *variable = argv[2];
 
 	if (argc < 3)
 	{
@@ -14,13 +15,14 @@ int main(int argc, char *argv[])
 
 	if (strcmp(command, "setenv") == 0)
 	{
+		const char *value = argv[3];
+
 		if (argc != 4)
 		{
 			fprintf(stderr, "Usage: %s setenv VARIABLE VALUE\n", argv[0]);
 			return (1);
 		}
 
-		const char *value = argv[3];
 		if (setenv(variable, value, 1) != 0)
 		{
 			perror("setenv");
@@ -49,4 +51,3 @@ int main(int argc, char *argv[])
 
 	return (0);
 }
-

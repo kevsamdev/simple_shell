@@ -17,7 +17,6 @@ void update_pwd(void)
 
 int main(void)
 {
-    // Sample usage of update_pwd function
     update_pwd();
 
     return 0;
