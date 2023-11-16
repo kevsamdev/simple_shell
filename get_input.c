@@ -1,65 +1,56 @@
-        {
-                tokens = realloc(tokens, (count + 2) * sizeof(char *));
-                if (tokens == NULL)
-                {
-                        perror("Error reallocating memory");
-                        exit(EXIT_FAILURE);
-                }
-                tokens[count] = strdup(token);
-                count++;
-                token = strtok(NULL, delimiter);
-        }
-        tokens[count] = NULL;
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "shell.h"
 
-        return (-1);
-
-}
-int executeComma80nd(const char *const *tokens)
+/* Define the node structure for aliases */
+typedef struct Node
 {
-        pid_t pid = fork();
+    char *name;
+    char *value;
+    struct Node *next;
+} Node;
 
-        if (pid == -1)
-        {
-                perror("Error forking process");
-                return (-1);
-        }
+/* Define the info structure */
+typedef struct Info
 
-        int status;
+{
 
-        if (pid == 0)
-        {
-                if (execvp(tokens[0], (char *const *)tokens) == -1)
-                {
-                        perror("Error executing command");
-                        exit(EXIT_FAILURE);
-                }
-        }
-        else
-        {
-                waitpid(pid, &status, 0);
+    char *arg;    /* Argument */
+    char **argv;  /* Argument vector */
+    Node *alias;  /* Alias list */
+} Info;
 
-                if (WIFEXITED(status))
-                {
-                        return (WEXITSTATUS(status));
-                }
-                else
-                {
-                        return (-1);
-                }
-        }
-}
+
+/* Function Declarations */
+void replace_alias(Info *info);
+void replace_vars(Info *info);
+void execute_command(Info *info);
+
+/* Function Definitions */
 
 int main(void)
 {
-        const char *command = "ls -l";
-        char **tokens = tokenizeCommand(command);
-        int status = executeCommand((const char *const *)tokens);
+    char input[256];  /* Assuming a maximum input size of 256 characters */
 
-        for (int i = 0; tokens[i] != NULL; i++)
-        {
-                free(tokens[i]);
-        }
-        free(tokens);
+    /* Example info structure initialization */
+    Info info;
+    info.arg = NULL;
+    info.argv = NULL;
+    info.alias = NULL;
 
-        return (status);
+    printf("Enter a command: ");
+    fgets(input, sizeof(input), stdin);
+
+    /* Assuming you have a function to parse the input into arguments */
+    /* parse_input(input, &info); */
+
+    /* Replace aliases and variables before executing the command */
+    replace_alias(&info);
+    replace_vars(&info);
+
+    /* Execute the command */
+    execute_command(&info);
+
+    return (0);
 }
