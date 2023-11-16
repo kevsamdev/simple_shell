@@ -26,9 +26,9 @@ void env_shell(char *envp[])
  */
 int main(int argc, char *argv[], char *envp[])
 {
+	char input[100];
 	(void)argc;
 	(void)argv;
-	char input[100];
 
 	while (1)
 	{
