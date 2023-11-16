@@ -26,14 +26,15 @@ void env_shell(char *envp[])
  */
 int main(int argc, char *argv[], char *envp[])
 {
+	(void)argc;
+	(void)argv;
 	char input[100];
 
 	while (1)
 	{
+		size_t len = strlen(input);
 		printf("Shell> ");
 		fgets(input, sizeof(input), stdin);
-		size_t len = strlen(input);
-
 		if (len > 0 && input[len - 1] == '\n')
 		{
 			input[len - 1] = '\0';
@@ -46,7 +47,6 @@ int main(int argc, char *argv[], char *envp[])
 
 		printf("Command: %s\n", input);
 	}
-
 	return (0);
 }
 
