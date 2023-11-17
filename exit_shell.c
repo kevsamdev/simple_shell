@@ -14,28 +14,3 @@ void exit_shell(void)
  *
  * Return: Always 0.
  */
-int main(void)
-{
-        char input[100];
-        size_t len;
-
-        while (1)
-        {
-                printf("Shell> ");
-                fgets(input, sizeof(input), stdin);
-                len = strlen(input);
-                if (len > 0 && input[len - 1] == '\n')
-                {
-                        input[len - 1] = '\0';
-                }
-
-                if (strcmp(input, "exit") == 0)
-                {
-                        exit_shell();
-                }
-
-                printf("Command: %s\n", input);
-        }
-
-        return (0);
-}
