@@ -19,52 +19,6 @@ static ssize_t read_char(int fd, char *buffer, size_t *pos)
 	return (buffer[(*pos)++]);
 }
 
-char *custom_getline(int fd)
-{
-	char *line = NULL;
-	size_t line_size = 0;
-	size_t pos = 0;
-
-	while (1)
-	{
-		char ch;
-		ssize_t result = read_char(fd, &ch, &pos);
-
-		if (result < 0)
-		{
-			free(line);
-			perror("Error reading from file");
-			return (NULL);
-		}
-
-		if (result == 0 || ch == '\n')
-		{
-			if (line_size > 0 || ch == '\n')
-			{
-				line = realloc(line, line_size + 2);
-				if (line == NULL)
-				{
-					perror("Error reallocating memory");
-					exit(EXIT_FAILURE);
-				}
-				line[line_size++] = ch;
-			}
-
-			line[line_size] = '\0';
-			return (line);
-		}
-		else
-		{
-			line = realloc(line, line_size + 1);
-			if (line == NULL)
-			{
-				perror("Error reallocating memory");
-				exit(EXIT_FAILURE);
-			}
-			line[line_size++] = ch;
-		}
-	}
-}
 
 void process_line(const char *line)
 {
