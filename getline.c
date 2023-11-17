@@ -67,24 +67,3 @@ char *custom_getline(int fd)
 	}
 }
 
-int main(void)
-{
-
-	char *line;
-	int fd = open("example.txt", O_RDONLY);
-	if (fd == -1)
-	{
-		perror("Error opening file");
-		exit(EXIT_FAILURE);
-	}
-
-	while ((line = custom_getline(fd)) != NULL)
-	{
-		write(STDOUT_FILENO, line, strlen(line));
-		free(line);
-	}
-
-	close(fd);
-	return (0);
-}
-
