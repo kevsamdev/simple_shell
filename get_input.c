@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "shell.h"
 
 /* Define the node structure for aliases */
