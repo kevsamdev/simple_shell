@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <unistd.h>
 #include "shell.h"
 
 void update_pwd(void)
