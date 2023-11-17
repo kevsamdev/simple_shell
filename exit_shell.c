@@ -5,10 +5,9 @@
  */
 void exit_shell(void)
 {
-        printf("Exiting the shell...\n");
-        exit(EXIT_SUCCESS);
+printf("Exiting the shell...\n");
+exit(EXIT_SUCCESS);
 }
-
 /**
  * main - Example usage of the shell program.
  *
