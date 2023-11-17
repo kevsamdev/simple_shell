@@ -6,7 +6,7 @@
 
 #define READ_SIZE 1024
 
-static ssize_t read_char(int fd, char *buffer, size_t *pos) __atribute__((unused));
+static ssize_t read_char(int fd, char *buffer, size_t *pos) __attribute__((unused));
 {
 	if (*pos == 0)
 	{
