@@ -79,24 +79,3 @@ void process_line(const char *line)
 
     putchar('\n');
 }
-
-int main(void)
-{
-	char *line;
-
-	int fd = open("example.txt", O_RDONLY);
-	if (fd == -1)
-	{
-		perror("Error opening file");
-		exit(EXIT_FAILURE);
-	}
-
-	while ((line = custom_getline(fd)) != NULL)
-	{
-		process_line(line);
-		free(line);
-	}
-
-	close(fd);
-	return (0);
-}

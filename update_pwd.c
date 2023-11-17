@@ -14,10 +14,3 @@ void update_pwd(void)
         perror("getcwd");
     }
 }
-
-int main(void)
-{
-    update_pwd();
-
-    return 0;
-}

@@ -19,13 +19,3 @@ void execute_command(char *command) {
         system(command);
     }
 }
-
-int main() {
-    while (1) {
-	char *command = read_command();
-        print_prompt();
-        execute_command(command);
-        free(command);
-    }
-    return 0;
-}
