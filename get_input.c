@@ -25,29 +25,3 @@ void replace_vars(Info *info);
 void execute_command(Info *info);
 
 /* Function Definitions */
-
-int main(void)
-{
-    char input[256];  /* Assuming a maximum input size of 256 characters */
-
-    /* Example info structure initialization */
-    Info info;
-    info.arg = NULL;
-    info.argv = NULL;
-    info.alias = NULL;
-
-    printf("Enter a command: ");
-    fgets(input, sizeof(input), stdin);
-
-    /* Assuming you have a function to parse the input into arguments */
-    /* parse_input(input, &info); */
-
-    /* Replace aliases and variables before executing the command */
-    replace_alias(&info);
-    replace_vars(&info);
-
-    /* Execute the command */
-    execute_command(&info);
-
-    return (0);
-}
