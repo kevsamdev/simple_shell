@@ -1,6 +1,6 @@
 #include "shell.h"
 
-int interactive(info_t *info)
+int interactive(ino_t *info)
 {
 	return (isatty(STDIN_FILENO) && info->readfd <= 2);
 }
